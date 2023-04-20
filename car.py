@@ -28,31 +28,36 @@ class Car(Serviceable):
 
 
 class CarFactory:
-    def create_calliope(self, current_date:date, last_service_date:date, current_mileage:int, last_service_mileage:int):
+    @staticmethod
+    def create_calliope(current_date:date, last_service_date:date, current_mileage:int, last_service_mileage:int):
         engine = CapuletEngine(current_mileage, last_service_mileage)
         battery = SplindlerBattery(last_service_date, current_date)
         car = Car(battery=battery, engine=engine)
         return car
     
-    def create_glissade(self, current_date:date, last_service_date:date, current_mileage:int, last_service_mileage:int):
+    @staticmethod
+    def create_glissade(current_date:date, last_service_date:date, current_mileage:int, last_service_mileage:int):
         engine = WilloughbyEngine(current_mileage, last_service_mileage)
         battery = SplindlerBattery(last_service_date, current_date)
         car = Car(battery=battery, engine=engine)
         return car
     
-    def create_palindrome(self, current_date:date, last_service_date:date, warning_ligh_is_ont:bool):
+    @staticmethod
+    def create_palindrome(current_date:date, last_service_date:date, warning_ligh_is_ont:bool):
         engine = SternmanEngine(warning_light_is_on=warning_ligh_is_ont)
         battery = SplindlerBattery(last_service_date, current_date)
         car = Car(battery=battery, engine=engine)
         return car
     
-    def create_rorschach(self, current_date:date, last_service_date:date, current_mileage:int, last_service_mileage:int)->Car:
+    @staticmethod
+    def create_rorschach(current_date:date, last_service_date:date, current_mileage:int, last_service_mileage:int)->Car:
         engine = WilloughbyEngine(current_mileage, last_service_mileage)
         battery = NubbinBattery(last_service_date, current_date)
         car = Car(battery=battery, engine=engine)
         return car
     
-    def create_thovex(self, current_date:date, last_service_date:date, current_mileage:int, last_service_mileage:int)->Car:
+    @staticmethod
+    def create_thovex(current_date:date, last_service_date:date, current_mileage:int, last_service_mileage:int)->Car:
         engine = CapuletEngine(current_mileage, last_service_mileage)
         battery = NubbinBattery(last_service_date, current_date)
         car = Car(battery=battery, engine=engine)
