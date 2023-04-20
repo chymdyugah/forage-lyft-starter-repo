@@ -8,5 +8,4 @@ class SplindlerBattery(Battery):
     
     def needs_service(self):
         service_threshold_date = self.battery_last_service_date.replace(year=self.battery_last_service_date.year + 2)
-        print(service_threshold_date)
         return service_threshold_date < self.current_date
